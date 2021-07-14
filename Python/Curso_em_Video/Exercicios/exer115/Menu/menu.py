@@ -1,17 +1,20 @@
-from sys import platform
-from IPython.display import clear_output as cls_out
-import os
-
 def criar_menu(titulo, opcoes):
     '''
     --> Cria um menu interativo retornando a opção escolhida.
-    :param titulo: o nome do menu do tipo string.
-    :param opcoes: um dicionario de opções que iram aparecer no menu, 
-                onde a chave é do tipo string e o valor do tipo function.
-    :return: retorna o valor do dicionario escolhido nas opções do menu.
+    :param titulo: string para exibir nome dado ao menu.
+    :param opcoes: dicionario de opções para exibir no menu, 
+                    onde a chave é o nome da opção e o valor
+                    caminho para chamar a função.
+    :return: retorna o valor do dicionario, escolhido nas opções do menu.
     '''
+    
+    from sys import platform
+    from IPython.display import clear_output as cls_out
+    import os
+    
     tamanho_título = len(titulo) * 3
     while True:
+        cls_out(wait=True)
         print(
             '=' * tamanho_título,
             titulo.upper().center(tamanho_título),
@@ -46,5 +49,4 @@ def criar_menu(titulo, opcoes):
         else:
             input('Pressione ENTER para continuar...')
         
-        cls_out(wait=True)
         
