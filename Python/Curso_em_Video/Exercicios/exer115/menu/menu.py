@@ -1,4 +1,4 @@
-def criar_menu(titulo, opcoes):
+def exibir_menu(titulo, opcoes):
     '''
     --> Cria um menu interativo retornando a opção escolhida.
     :param titulo: string para exibir nome dado ao menu.

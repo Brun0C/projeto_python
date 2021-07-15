@@ -6,9 +6,8 @@ def atulizar():
     pass
 
 
-def cadastrar(voltar_para):
+def cadastrar():
     print('Pessoa cadastrada')
-    return voltar_para
 
 
 def listar():
