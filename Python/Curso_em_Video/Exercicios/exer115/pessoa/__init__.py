@@ -3,7 +3,7 @@ def apagar():
 
 
 def atulizar():
-    pass
+    print('Cadastrada atualizado')
 
 
 def cadastrar():
