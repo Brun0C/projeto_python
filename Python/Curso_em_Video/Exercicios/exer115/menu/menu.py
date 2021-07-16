@@ -8,23 +8,15 @@ def exibir_menu(titulo, opcoes):
     :return: retorna o valor do dicionario, escolhido nas opções do menu.
     '''
     
-    from sys import platform
-    from IPython.display import clear_output as cls_out
-    import os
+    from uteis import limpar_tela, cabecalho
     
-    tamanho_título = len(titulo) * 3
     while True:
-        cls_out(wait=True)
-        print(
-            '=' * tamanho_título,
-            titulo.upper().center(tamanho_título),
-            '=' * tamanho_título,
-            sep = '\n'
-        )
+        
+        cabecalho(titulo)
         
         for indice, opcao in enumerate(opcoes, 1):
             print(f'\033[33m[{indice}] - \033[34m{opcao}\033[m')
-        print('\n\033[33m[0] - \033[34mSair\n')
+        print('\n\033[33m[0] - \033[34mSair\033[m\n')
         
         op = str(input('Escolha uma opção: ')).strip()
         
@@ -36,17 +28,9 @@ def exibir_menu(titulo, opcoes):
                 funcao = list(opcoes.values())[int(op) - 1]
                 return funcao
 
-        print('\033[31mERROR!!! Opção inválida.\033[m')
-        
-        if platform == "linux" or platform == "linux2":
-            # linux
-            input('Pressione ENTER para continuar...')
-            os.system('clear')
-        elif platform == "win32":
-            # Windows...
-            os.system('pause')
-            os.system('cls')
-        else:
-            input('Pressione ENTER para continuar...')
-        
+        print('\033[31m')
+        cabecalho('ERRO!!! Opção inválida.', 2)
+        print('\033[m' )
+        input('Pressione ENTER para continuar...')
+        limpar_tela()
         
